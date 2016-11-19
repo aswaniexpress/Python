@@ -1,0 +1,18 @@
+# In place Quick Sort based on Lomuto Partitioning 
+def Qsort(a,left,right):
+    if right-left<=0:
+        return a
+    pivot=a[right]
+    start=left
+    for i in range(left,right):
+        if a[i]<=pivot:
+            a[i],a[start]=a[start],a[i]
+            start+=1
+    a[start],a[right]=a[right],a[start]
+    #print(' '.join(str(gh) for gh in a))
+    Qsort(a,left,start-1)
+    Qsort(a,start+1,right)
+n=int(input())
+a=[int(x) for x in input().split()]
+Qsort(a,0,n-1)
+print(' '.join(str(gh) for gh in a))
