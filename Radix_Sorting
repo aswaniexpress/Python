@@ -1,0 +1,15 @@
+## Simple Radix Sorting in Python
+# Number of elements in array
+N=int(input())
+# Array elements in a
+a=list(map(int, input().split()))
+# find max in a
+mymax=max(a)
+# Sorting attribute intializer
+y=1
+# Sort .
+for i in range(len(str(mymax))):
+	a.sort(key=lambda x:x%(10**y))
+	y+=1
+  #Print Sorting elements Optional.
+	#print(' '.join(str(h) for h in a))
