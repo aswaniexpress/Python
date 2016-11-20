@@ -1,0 +1,10 @@
+#Print concentric rectangular pattern in a 2d matrix. 
+#Simple Python Solution (can be extended to other lagnauges as well)
+# courtesy: http://qa.geeksforgeeks.org/user/gersakbogdan
+class PrettyPrint:
+    def solution(self, a):
+        n = a * 2 - 1
+        for i in xrange(n):
+            for j in xrange(n):
+                print(max(abs(n/2-i),abs(n/2-j))+1, end=' ')
+            print('')
