@@ -1,0 +1,35 @@
+"""
+https://www.hackerrank.com/challenges/ctci-contacts
+"""
+# Simple Trie Implementation in Python in C++ Style.
+class Node:
+    __slots__ = ["count","array"]
+    def __init__(self):
+        self.count=0
+        self.array = [None]*26
+        #self.head = Node()
+    def add(self, s):
+        myNode = self
+        for ch in s:
+            val = ord(ch)-ord('a')
+            if myNode.array[val]==None:
+                myNode.array[val]=Node()
+            myNode = myNode.array[val]
+            myNode.count+=1
+    def find(self, s):
+        myNode = self
+        for ch in s:
+            val = ord(ch)-ord('a')
+            if myNode.array[val]==None:
+                return 0
+            myNode = myNode.array[val]
+        return myNode.count
+n = int(input().strip())
+myNode = Node()
+for a0 in range(n):
+    op, contact = input().strip().split(' ')
+    if op=='add':
+        myNode.add(contact)
+    else:
+        print(myNode.find(contact))
+        
